@@ -15,12 +15,15 @@ body{
 
 <body style="background-image: url('{% static 'images/elect.jpg' %}')">
 	<div class="container mt-5" style="margin-top : 10%">
-		<h1 class="text-center" style="font-family: 'Monotype Corsiva'; color: white; margin-left: 5%;">About Us</h1>
+		{% comment %} <h1 class="text-center" style="font-family: 'Monotype Corsiva'; color: white; margin-left: 5%;">About Us</h1> {% endcomment %}
+		<h1 class="text-center" style="font-family: 'Monotype Corsiva'; color: white;">About Us</h1>
 		<br><br><br>
 		<div class="row">
 			<div class="col-sm-12">
 				<center>
-					<img src="{% static 'images/mpmkvvcl1_logo.png' %}" width=800 height=200
+					{% comment %} <img src="{% static 'images/mpmkvvcl1_logo.png' %}" width=800 height=200
+						class="img-responsive"> {% endcomment %}
+					<img src="{% static 'images/mpmkvvcl1_logo.png' %}" height=100
 						class="img-responsive">
 				</center>
 			</div>
