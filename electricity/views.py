@@ -112,19 +112,27 @@ def add_Connection(request):
         customerid = request.POST['customerid']
         ctype = request.POST['connectiontype']
         cdate = request.POST['connectionstartdate']
-        o = request.POST['occupation']
-        cload = request.POST['connectionload']
+        # o = request.POST['occupation']
+        # cload = request.POST['connectionload']
         pno = request.POST['plotno']
         c = request.POST['city']
         p = request.POST['pincode']
         a = request.POST['address']
         s = request.POST['state']
-        d = request.POST['description']
+        # d = request.POST['description']
+
+        # customer = Customer.objects.get(id=customerid)
+        # try:
+        #     Connection.objects.create(customer=customer, connectionid=cid, connectiontype=ctype, connectionstartdate=cdate, occupation=o,
+        #                               connectionload=cload, plotno=pno, city=c, pincode=p, address=a, state=s, description=d)
+        #     error = "no"
+        # except:
+        #     error = "yes"
 
         customer = Customer.objects.get(id=customerid)
         try:
-            Connection.objects.create(customer=customer, connectionid=cid, connectiontype=ctype, connectionstartdate=cdate, occupation=o,
-                                      connectionload=cload, plotno=pno, city=c, pincode=p, address=a, state=s, description=d)
+            Connection.objects.create(customer=customer, connectionid=cid, connectiontype=ctype, connectionstartdate=cdate, plotno=pno,
+                                        city=c, pincode=p, address=a, state=s)
             error = "no"
         except:
             error = "yes"
@@ -147,27 +155,27 @@ def edit_Connection(request,pid):
         customerid = request.POST['customerid']
         ctype = request.POST['connectiontype']
         cdate = request.POST['connectionstartdate']
-        o = request.POST['occupation']
-        cload = request.POST['connectionload']
+        # o = request.POST['occupation']
+        # cload = request.POST['connectionload']
         pno = request.POST['plotno']
         c = request.POST['city']
         p = request.POST['pincode']
         a = request.POST['address']
         s = request.POST['state']
-        d = request.POST['description']
+        # d = request.POST['description']
 
         customer1 = Customer.objects.get(id=customerid)
 
         connection.customer = customer1
         connection.connectiontype = ctype
-        connection.occupation = o
-        connection.connectionload = cload
+        # connection.occupation = o
+        # connection.connectionload = cload
         connection.plotno = pno
         connection.city = c
         connection.pincode = p
         connection.address = a
         connection.state = s
-        connection.description = d
+        # connection.description = d
         if cdate:
             connection.connectionstartdate = cdate
         connection.save()
